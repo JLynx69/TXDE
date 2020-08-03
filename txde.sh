@@ -47,6 +47,8 @@ clear
 pkg update && pkg upgrade -y
 pkg install unstable-repo root-repo x11-repo
 pkg install xfce4 tigervnc xfce4-terminal xterm
+vncserver
+rm ~/.vnc/xstartup
 echo """#!/data/data/com.termux/files/usr/bin/sh
 ## This file is executed during VNC server
 ## startup.
@@ -59,8 +61,9 @@ xterm -geometry 80x24+10+10 -ls &
 # Requires package 'xorg-twm'.
 startxfce4 &
 """ > ~/.vnc/xstartup
+vncserver -kill :1
 chmod +x ~/.vnc/xstartup
-echo -e -n "\033[1;32mDONE. ketik vncserver untuk menjalankan lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
+echo -e -n "\033[1;32mDONE. ketik vncserver lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
 fi
 # pilihan 5 
 if [ $post -eq "5" ]; then
@@ -74,11 +77,14 @@ clear
 pkg update && pkg upgrade -y
 pkg install unstable-repo root-repo x11-repo
 pkg install tigervnc openbox obconf pypanel xorg-xsetroot
+vncserver
+rm ~/.vnc/xstartup
 echo """#!/data/data/com.termux/files/usr/bin/sh
 #xsetroot -solid gray
 xterm -geometry 80x24+10+10 -ls -title '$VNCDESKTOP
 openbox-session &
 """ > ~/.vnc/xstartup
+vncserver -kill :1
 chmod +x ~/vnc/xstartup
 echo """# Make background gray.
 xsetroot -solid gray
@@ -86,7 +92,7 @@ xsetroot -solid gray
 # Launch PyPanel.
 pypanel &
 """ > ~/.config/openbox/autostart
-echo -e -n "\033[1;32mDONE. ketik vncserver untuk menjalankan lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
+echo -e -n "\033[1;32mDONE. Ketik vncserver lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
 fi
 # pilihan 6
 if [ $post -eq "7" ]; then
@@ -96,6 +102,8 @@ clear
 pkg update && pkg upgrade -y
 pkg install unstable-repo root-repo x11-repo
 pkg install tigervnc fluxbox
+vncserver
+rm ~/.vnc/xstartup
 echo """#!/data/data/com.termux/files/usr/bin/sh
 ## Fluxbox desktop.
 
@@ -105,6 +113,7 @@ fluxbox-generate_menu
 # Start fluxbox.
 fluxbox &
 """ > ~/.vnc/xstartup
+vncserver -kill :1
 chmod +x ~/vnc/xstartup
-echo -e -n "\033[1;32mDONE. ketik vncserver untuk menjalankan lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
+echo -e -n "\033[1;32mDONE. ketik vncserver lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
 fi

@@ -21,7 +21,8 @@ echo '''
 3) MATE (Comming Soon)
 4) xfce4
 5) LXDE (Comming Soon)
-6) OpenBox
+6) OpenBox (WM)
+7) FluxBox (WM)
 '''
 echo -e -n "Masukan Nomor: "
 read post
@@ -72,11 +73,37 @@ sleep 2
 clear
 pkg update && pkg upgrade -y
 pkg install unstable-repo root-repo x11-repo
-pkg install tigervnc openbox obconf openbox-static
-echo """#!/bin/sh
+pkg install tigervnc openbox obconf pypanel xorg-xsetroot
+echo """#!/data/data/com.termux/files/usr/bin/sh
 #xsetroot -solid gray
 xterm -geometry 80x24+10+10 -ls -title '$VNCDESKTOP
-openbox &
+openbox-session &
+""" > ~/.vnc/xstartup
+chmod +x ~/vnc/xstartup
+echo """# Make background gray.
+xsetroot -solid gray
+
+# Launch PyPanel.
+pypanel &
+""" > ~/.config/openbox/autostart
+echo -e -n "\033[1;32mDONE. ketik vncserver untuk menjalankan lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
+fi
+# pilihan 6
+if [ $post -eq "7" ]; then
+echo -e "\033[0mInstalling Fluxbox..."
+sleep 2
+clear
+pkg update && pkg upgrade -y
+pkg install unstable-repo root-repo x11-repo
+pkg install tigervnc fluxbox
+echo """#!/data/data/com.termux/files/usr/bin/sh
+## Fluxbox desktop.
+
+# Generate menu.
+fluxbox-generate_menu
+
+# Start fluxbox.
+fluxbox &
 """ > ~/.vnc/xstartup
 chmod +x ~/vnc/xstartup
 echo -e -n "\033[1;32mDONE. ketik vncserver untuk menjalankan lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"

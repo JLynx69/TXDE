@@ -24,11 +24,13 @@ Setelah selesai ketikan perintah
 $ vncserver
 
 Masukan password > Verif Password
+
 Jika ada pertanyaan 
+
 Would you like to enter a view-only password (y/n)?
 Pilih saja N
 
-Buka Vnc Viewer (PS) masukan alamat 127.0.0.1:5901
+Buka Vnc Viewer (PlayStore) masukan alamat 127.0.0.1:5901
 Klik connect
 
 Thanks :)

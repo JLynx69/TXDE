@@ -66,7 +66,7 @@ if [ $post -eq "5" ]; then
 echo -e "\033[1;31mLXDE is Not available In Termux Repository"
 fi
 # pilihan 6
-if [ $post -eq "3" ]; then
+if [ $post -eq "6" ]; then
 echo -e "\033[0mInstalling OpenBox..."
 sleep 2
 clear

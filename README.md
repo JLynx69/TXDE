@@ -1,5 +1,7 @@
 # TXDE
-Termux Desktop Environment Installer
+Termux Desktop Environment Installer 
+
+Note : Only work on termux 0.94+
 
 ![screenshoot](https://i.ibb.co/6JNp0BH/Screenshot-20200804-005958.png)
 

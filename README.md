@@ -1,6 +1,8 @@
 # TXDE
 Termux Desktop Environment Installer
 
+![screenshoot](https://ibb.co/TqrnML4)
+
 Txde adalah script sederhana untuk menginstall
 Desktop Environment di Termux agar lebih mudah
 

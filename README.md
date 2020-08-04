@@ -20,6 +20,7 @@ Desktop Environment di Termux agar lebih mudah
 * Xfce4
 * Lxde (Not Available)
 * Openbox (Window Manager)
+* Fluxbox (Window Manager)
 
 **Cara pakai :**
 

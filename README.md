@@ -1,5 +1,7 @@
 # TXDE
-Termux Desktop Environment Installer 
+Termux Desktop Environment Installer
+
+- Update Tambahan Fluxbox Window manager
 
 Note : Only work on termux 0.94+
 

@@ -16,7 +16,7 @@ Desktop Environment di Termux agar lebih mudah
 
 * Gnome (Not Available)
 * KDE (Not Available)
-* MATE (Not Available)
+* MATE 
 * Xfce4
 * Lxde (Not Available)
 * Openbox (Window Manager)

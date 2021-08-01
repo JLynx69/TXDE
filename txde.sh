@@ -37,7 +37,20 @@ echo -e "\033[1;31mKDE is Not available In Termux Repository"
 fi
 # pilihan 3 
 if [ $post -eq "3" ]; then
-echo -e "\033[1;31mMATE is Not available In Termux Repository"
+echo -e "\033[0mInstalling mate..."
+sleep 2
+clear
+pkg update && pkg upgrade -y
+pkg install unstable-repo root-repo x11-repo -y
+pkg install tigervnc mate-* marco -y
+vncserver
+rm ~/.vnc/xstartup
+echo """#!/data/data/com.termux/files/usr/bin/sh
+mate-session &
+""" > ~/.vnc/xstartup
+vncserver -kill :1
+chmod +x ~/.vnc/xstartup
+echo -e -n "\033[1;32mDONE. ketik vncserver lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
 fi
 # pilihan 4 
 if [ $post -eq "4" ]; then
@@ -45,8 +58,8 @@ echo -e "\033[0mInstalling xfce4..."
 sleep 2
 clear
 pkg update && pkg upgrade -y
-pkg install unstable-repo root-repo x11-repo
-pkg install xfce4 tigervnc xfce4-terminal xterm
+pkg install unstable-repo root-repo x11-repo -y
+pkg install xfce4 tigervnc xfce4-terminal -y
 vncserver
 rm ~/.vnc/xstartup
 echo """#!/data/data/com.termux/files/usr/bin/sh
@@ -55,7 +68,7 @@ echo """#!/data/data/com.termux/files/usr/bin/sh
 
 # Launch terminal emulator Aterm.
 # Requires package 'aterm'.
-xterm -geometry 80x24+10+10 -ls &
+xfce4-terminal &
 
 # Launch Tab Window Manager.
 # Requires package 'xorg-twm'.
@@ -75,13 +88,13 @@ echo -e "\033[0mInstalling OpenBox..."
 sleep 2
 clear
 pkg update && pkg upgrade -y
-pkg install unstable-repo root-repo x11-repo
-pkg install tigervnc openbox obconf pypanel xorg-xsetroot
+pkg install unstable-repo root-repo x11-repo -y
+pkg install tigervnc openbox obconf pypanel xorg-xsetroot aterm -y
 vncserver
 rm ~/.vnc/xstartup
 echo """#!/data/data/com.termux/files/usr/bin/sh
 #xsetroot -solid gray
-xterm -geometry 80x24+10+10 -ls -title '$VNCDESKTOP
+aterm -geometry 80x24+10+10 -ls -title '$VNCDESKTOP
 openbox-session &
 """ > ~/.vnc/xstartup
 vncserver -kill :1
@@ -100,8 +113,8 @@ echo -e "\033[0mInstalling Fluxbox..."
 sleep 2
 clear
 pkg update && pkg upgrade -y
-pkg install unstable-repo root-repo x11-repo
-pkg install tigervnc fluxbox
+pkg install unstable-repo root-repo x11-repo -y
+pkg install tigervnc fluxbox -y
 vncserver
 rm ~/.vnc/xstartup
 echo """#!/data/data/com.termux/files/usr/bin/sh

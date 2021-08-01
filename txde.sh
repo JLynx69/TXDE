@@ -18,7 +18,7 @@ echo "Pilih Desktop Environment"
 echo '''
 1) Gnome (Comming Soon)
 2) KDE (Comming Soon)
-3) MATE (Comming Soon)
+3) MATE
 4) xfce4
 5) LXDE (Comming Soon)
 6) OpenBox (WM)

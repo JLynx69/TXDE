@@ -2,7 +2,7 @@
 Termux Desktop Environment Installer
 
 **Update**
-- Tambahan Fluxbox Window manager
+- Tambahan MATE & LxQt
 - Fix Bug
 
 Note : Only work on termux 0.94+
@@ -16,9 +16,9 @@ Desktop Environment di Termux agar lebih mudah
 
 * Gnome (Not Available)
 * KDE (Not Available)
-* MATE (Not Available)
+* MATE
 * Xfce4
-* Lxde (Not Available)
+* LxQt
 * Openbox (Window Manager)
 * Fluxbox (Window Manager)
 

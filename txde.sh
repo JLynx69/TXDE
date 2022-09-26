@@ -18,9 +18,9 @@ echo "Pilih Desktop Environment"
 echo '''
 1) Gnome (Comming Soon)
 2) KDE (Comming Soon)
-3) MATE (Comming Soon)
+3) MATE
 4) xfce4
-5) LXDE (Comming Soon)
+5) LxQt
 6) OpenBox (WM)
 7) FluxBox (WM)
 '''
@@ -37,7 +37,29 @@ echo -e "\033[1;31mKDE is Not available In Termux Repository"
 fi
 # pilihan 3 
 if [ $post -eq "3" ]; then
-echo -e "\033[1;31mMATE is Not available In Termux Repository"
+echo -e "\033[0mInstalling MATE..."
+sleep 2
+clear
+pkg update && pkg upgrade -y
+pkg install unstable-repo root-repo x11-repo
+pkg install mate-* marco tigervnc xterm
+vncserver
+rm ~/.vnc/xstartup
+echo """#!/data/data/com.termux/files/usr/bin/sh
+## This file is executed during VNC server
+## startup.
+
+# Launch terminal emulator Aterm.
+# Requires package 'aterm'.
+xterm -geometry 80x24+10+10 -ls &
+
+# Launch Tab Window Manager.
+# Requires package 'xorg-twm'.
+mate-session &
+""" > ~/.vnc/xstartup
+vncserver -kill :1
+chmod +x ~/.vnc/xstartup
+echo -e -n "\033[1;32mDONE. ketik vncserver lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
 fi
 # pilihan 4 
 if [ $post -eq "4" ]; then
@@ -67,7 +89,29 @@ echo -e -n "\033[1;32mDONE. ketik vncserver lalu buka vncviewer.apk masukan alam
 fi
 # pilihan 5 
 if [ $post -eq "5" ]; then
-echo -e "\033[1;31mLXDE is Not available In Termux Repository"
+echo -e "\033[0mInstalling LxQt..."
+sleep 2
+clear
+pkg update && pkg upgrade -y
+pkg install unstable-repo root-repo x11-repo
+pkg install lxqt tigervnc xterm
+vncserver
+rm ~/.vnc/xstartup
+echo """#!/data/data/com.termux/files/usr/bin/sh
+## This file is executed during VNC server
+## startup.
+
+# Launch terminal emulator Aterm.
+# Requires package 'aterm'.
+xterm -geometry 80x24+10+10 -ls &
+
+# Launch Tab Window Manager.
+# Requires package 'xorg-twm'.
+lxqt-session &
+""" > ~/.vnc/xstartup
+vncserver -kill :1
+chmod +x ~/.vnc/xstartup
+echo -e -n "\033[1;32mDONE. ketik vncserver lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
 fi
 # pilihan 6
 if [ $post -eq "6" ]; then
@@ -94,7 +138,7 @@ pypanel &
 """ > ~/.config/openbox/autostart
 echo -e -n "\033[1;32mDONE. Ketik vncserver lalu buka vncviewer.apk masukan alamat 127.0.0.1:5901\033[0m"
 fi
-# pilihan 6
+# pilihan 7
 if [ $post -eq "7" ]; then
 echo -e "\033[0mInstalling Fluxbox..."
 sleep 2
